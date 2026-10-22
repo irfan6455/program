@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Tabungan Impian Siswa</title>
+  
+  <!-- Font Google Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Latar Belakang Gradien Visual -->
+  <div class="bg-vibe"></div>
+
+  <div class="app-container">
+    
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo-icon">2512996333.jpg</div>
+      <div class="header-text">
+        <h1>Tabungan Impian Siswa</h1>
+        <p>Wujudkan target belanja, gadget, atau pendidikan dengan terencana.</p>
+      </div>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main class="main-content">
+      
+      <!-- FORM INPUT -->
+      <section class="glass-panel input-panel">
+        <h2 class="panel-title"><span>⚙️</span> Atur Rencanamu</h2>
+        
+        <form id="savingsForm">
+          <div class="form-group">
+            <label for="targetName">Nama Impian / Target</label>
+            <input type="text" id="targetName" placeholder="misal: Sepatu Baru, Laptop, Konser" value="Laptop Baru" required>
+          </div>
+
+          <div class="form-group">
+            <label for="targetAmount">Target Dana (Rp)</label>
+            <input type="number" id="targetAmount" placeholder="1000000" min="10000" value="3000000" required>
+          </div>
+
+          <div class="form-group">
+            <label for="initialBalance">Tabungan Awal (Rp) <span class="optional">(Opsional)</span></label>
+            <input type="number" id="initialBalance" placeholder="0" min="0" value="500000">
+          </div>
+
+          <div class="form-group flex-group">
+            <div>
+              <label for="depositAmount">Setoran (Rp)</label>
+              <input type="number" id="depositAmount" placeholder="20000" min="1000" value="25000" required>
+            </div>
+            <div>
+              <label for="frequency">Frekuensi</label>
+              <select id="frequency">
+                <option value="daily" selected>Harian</option>
+                <option value="weekly">Mingguan</option>
+                <option value="monthly">Bulanan</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- FITUR SIMULASI EKSTRA -->
+          <div class="form-group extra-sim">
+            <label for="extraDeposit">Simulasi Hemat Jajan Tambahan (Rp/periode)</label>
+            <input type="number" id="extraDeposit" placeholder="misal: 5000" min="0" value="5000">
+            <p class="help-text">Hemat jajan minuman/game untuk mempercepat targetmu!</p>
+          </div>
+
+          <button type="submit" class="btn-calculate" id="btnCalculate">⚡ Hitung Estimasi</button>
+        </form>
+      </section>
+
+      <!-- HASIL & PROYEKSI -->
+      <section class="glass-panel result-panel" id="resultPanel">
+        <h2 class="panel-title"><span>📊</span> Hasil & Proyeksi</h2>
+
+        <div class="result-content" id="resultContent">
+          
+          <!-- PROGRESS BAR VISUAL -->
+          <div class="progress-container">
+            <div class="progress-info">
+              <span id="progressLabel">Progres Tabungan</span>
+              <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="progressBarFill"></div>
+            </div>
+          </div>
+
+          <!-- KARTU SUMMARY HASIL -->
+          <div class="summary-cards">
+            <div class="card basic-card">
+              <span class="card-icon">💰</span>
+              <span class="card-label">Target Akhir</span>
+              <span class="card-value" id="resTargetAmount">Rp 0</span>
+            </div>
+            <div class="card time-card">
+              <span class="card-icon">🗓️</span>
+              <span class="card-label">Waktu Dibutuhkan</span>
+              <span class="card-value" id="resTimeNeeded">0 Hari</span>
+            </div>
+            <div class="card date-card">
+              <span class="card-icon">🚀</span>
+              <span class="card-label">Perkiraan Tercapai</span>
+              <span class="card-value" id="resTargetDate">-</span>
+            </div>
+          </div>
+
+          <!-- HASIL SIMULASI EKSTRA HEMAT -->
+          <div class="extra-result hidden" id="extraResultBox">
+            <p id="extraResultText"></p>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>&copy; <span id="year"></span> Tabungan Impian Siswa &bull; Clean & Modern Code</p>
+    </footer>
+
+  </div>
+
+  <!-- External Script -->
+  <script src="script.js"></script>
+</body>
+</html>
